@@ -4,6 +4,11 @@ COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
+
+NOTES: 
+    rotate(180deg)
+
+
 */
 
 
@@ -63,6 +68,8 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    /* hides the shaky move of the element */
+    backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -71,6 +78,16 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    /* applying the animation  */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* there are many function that you can use for animation example:  */
+    /* animation-delay: 3s;
+    animation-iteration-count: 3;
+    animation-timing-function: ease;
+    animation-timing-function: ease-out;
+    animation-timing-function: ease-in; */
 }
 
 .heading-primary-sub {
@@ -78,4 +95,37 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    /* animation starts @0 */
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    /* animation ends @1000 */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* animation starts @0 */
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    /* animation ends @1000 */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
