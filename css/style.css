@@ -4,5 +4,78 @@ COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
+
+
+/* Normalizing using the universal selector, allow us to start clean */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* change box model so border, paddings are not added  */
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    /* all child will inherent the font */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    /* always take 95% of view port height, vh it will change dinamically so it is better to use it */
+    height: 95vh;
+    background-image: linear-gradient( to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    /* clip or cut some part of the image */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* will help to position its child logo-box */
+    position: relative;
+}
+
+.logo-box {
+    /* absolute position start counting from the parent's referance in this case is the header */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    /* if we define the height the width will automatically be define */
+    height: 35px;
+}
+
+.text-box {
+    /* we need to center this so we can use the text-box to centered */
+    position: absolute;
+    /* in realtion to the parent */
+    top: 40%;
+    left: 50%;
+    /* in realation to the element itself since top & left are 50% starts at the middle but we actually need to start at the middle of the content, will centered vertically & horizonatally  */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    /* block elements takes the whole as a block  */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
