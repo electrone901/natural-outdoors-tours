@@ -14,21 +14,34 @@ NOTES:
 
 /* Normalizing using the universal selector, allow us to start clean */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /*using inherit*/
+    box-sizing: inherit;
     /* change box model so border, paddings are not added  */
+}
+
+html {
+    /* by declaring fontSize= 10px we basically saying thta 1 rem = 10 px, so it is easier for us to convert pxs to rem just by div by 10. Converting/using rem instead of pixels is better if you want to be responsive on fontSize, paddings, etc.. If you change the fontSize everything will change it will make life especially with media queries when changing fontSize */
+    /* font-size: 10px; */
+    /*but using px here is bad practice so instead use % to allow the user to zooming in the page the technique is:
+    10px/16px = 0.625 * 100% = 62.5%
+    */
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     /* all child will inherent the font */
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 .header {
@@ -46,13 +59,13 @@ body {
 .logo-box {
     /* absolute position start counting from the parent's referance in this case is the header */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
     /* if we define the height the width will automatically be define */
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -71,15 +84,15 @@ body {
     text-transform: uppercase;
     /* hides the shaky move of the element */
     backface-visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     /* block elements takes the whole as a block  */
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     /* applying the animation  */
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -94,9 +107,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
 }
 
@@ -104,10 +117,10 @@ body {
     /* animation starts @0 */
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
     /* animation ends @1000 */
     100% {
@@ -120,10 +133,10 @@ body {
     /* animation starts @0 */
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     /* animation ends @1000 */
     100% {
@@ -136,7 +149,7 @@ body {
     /* animation starts @0 */
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     /* animation ends @1000 */
     100% {
@@ -152,23 +165,23 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s;
     position: relative;
 }
 
 .btn:hover {
     /* moving up -3 goes up  */
-    transform: translateY(-3px);
+    transform: translateY(-.3rem);
     /* params x direction, down, blur,   */
-    box-shadow: 0 10px 20px rgb(0, 0, 0, .2);
+    box-shadow: 0 1rem 2rem rgb(0, 0, 0, .2);
 }
 
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgb(0, 0, 0, .2);
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgb(0, 0, 0, .2);
 }
 
 .btn-white {
@@ -184,7 +197,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     /* put behind of the button so we can use absolute position but we need the parent to be relative which is the btn:link  */
     position: absolute;
     top: 0;
