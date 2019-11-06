@@ -56,19 +56,19 @@ body {
     position: relative;
 }
 
-.logo-box {
+.header__logo-box {
     /* absolute position start counting from the parent's referance in this case is the header */
     position: absolute;
     top: 4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     /* if we define the height the width will automatically be define */
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     /* we need to center this so we can use the text-box to centered */
     position: absolute;
     /* in realtion to the parent */
@@ -87,7 +87,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     /* block elements takes the whole as a block  */
     display: block;
     font-size: 6rem;
@@ -105,7 +105,7 @@ body {
     animation-timing-function: ease-in; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -184,7 +184,7 @@ body {
     box-shadow: 0 .5rem 1rem rgb(0, 0, 0, .2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -208,7 +208,7 @@ body {
     transition: all .4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -218,7 +218,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     /* we can put all values: name, duration effect delate */
     animation: moveInBottom .5s ease-out .75s;
     /* will apply before the animation starts of moveInBottom at 0% */
