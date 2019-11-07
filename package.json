@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "natural-outdoors tours",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electrone901/natural-outdoors-tours.git"
+  },
+  "author": "Luis C",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/electrone901/natural-outdoors-tours/issues"
+  },
+  "homepage": "https://github.com/electrone901/natural-outdoors-tours#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
