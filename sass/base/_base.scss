@@ -1,0 +1,24 @@
+/* Normalizing using the universal selector, allow us to start clean */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /*using inherit*/
+    box-sizing: inherit;
+    /* change box model so border, paddings are not added  */
+}
+
+html {
+    /* by declaring fontSize= 10px we basically saying thta 1 rem = 10 px, so it is easier for us to convert pxs to rem just by div by 10. Converting/using rem instead of pixels is better if you want to be responsive on fontSize, paddings, etc.. If you change the fontSize everything will change it will make life especially with media queries when changing fontSize */
+    /* font-size: 10px; */
+    /*but using px here is bad practice so instead use % to allow the user to zooming in the page the technique is:
+    10px/16px = 0.625 * 100% = 62.5%
+    */
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}

@@ -1,0 +1,60 @@
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+    }
+    // this translates to .btn:hover
+    &:hover {
+        /* moving up -3 goes up  */
+        transform: translateY(-.3rem);
+        /* params x direction, down, blur,   */
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        // this translates to .btn:hover::after
+        &::after {
+            /* makes the botton bigger, but we need to animated we always put the animation on the initial state which is btn::after */
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    }
+    // this translate to .btn--white
+    &--white {
+        background-color: $color-white;
+        color: $color-gray-dark;
+        // this translate to .btn--white::after 
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    /* after acts like a virtual element after we selected */
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        /* put behind of the button so we can use absolute position but we need the parent to be relative which is the btn:link  */
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* it hides the botton */
+        z-index: -1;
+        /* transitions are use for btn:hover::after  */
+        transition: all .4s;
+    }
+    .btn--animated {
+        /* we can put all values: name, duration effect delate */
+        animation: moveInBottom .5s ease-out .75s;
+        /* will apply before the animation starts of moveInBottom at 0% */
+        animation-fill-mode: backwards;
+    }
+}
