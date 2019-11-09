@@ -8,6 +8,7 @@
         border-radius: 10rem;
         transition: all .2s;
         position: relative;
+        font-size: $default-font-size;
     }
     // this translates to .btn:hover
     &:hover {
@@ -56,5 +57,28 @@
         animation: moveInBottom .5s ease-out .75s;
         /* will apply before the animation starts of moveInBottom at 0% */
         animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        // we aren't using rem for smallest unit 
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+    }
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+    }
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
     }
 }
