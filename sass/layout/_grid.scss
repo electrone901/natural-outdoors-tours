@@ -1,0 +1,46 @@
+.row {
+    // row standard size 1140px but use rem to make it responsive
+    max-width: $grid-width;
+    background-color: #eee;
+    // to center  
+    margin: 0 auto;
+    // we put margin-bottom everywhere except last child margin-bottom => .row:not
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+    // .row:not:after
+    @include clearfix;
+    // attribute selector.  class$="col-" selects all classes starting wint col
+    // class$="col-" selects all classes ENDING with col
+    [class^="col-"] {
+        background-color: orangered;
+        float: left;
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+    .col-1-of-2 {
+        // calculates the widht of one column by taking 100% - gutter-horizontal / numOfCols
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+    .col-1-of-3 {
+        // calculates the widht of one column by taking 100% - 2 * gutter-horizontal / numOfCols
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+    .col-2-of-3 {
+        // calculates the widht of one column with size of 2  by multiplying 2*  (100% - 2 * gutter-horizontal / numOfCols) + gutter-horizontal 
+        width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+    .col-1-of-4 {
+        // same idea
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+    .col-2-of-4 {
+        // same idea
+        width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+    }
+    .col-3-of-4 {
+        // same idea
+        width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+    }
+}
