@@ -1,7 +1,6 @@
 .row {
     // row standard size 1140px but use rem to make it responsive
     max-width: $grid-width;
-    background-color: #eee;
     // to center  
     margin: 0 auto;
     // we put margin-bottom everywhere except last child margin-bottom => .row:not
@@ -13,7 +12,6 @@
     // attribute selector.  class$="col-" selects all classes starting wint col
     // class$="col-" selects all classes ENDING with col
     [class^="col-"] {
-        background-color: orangered;
         float: left;
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
