@@ -36,6 +36,14 @@
             background-color: $color-white;
         }
     }
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+        // this translate to .btn--white::after 
+        &::after {
+            background-color: $color-white;
+        }
+    }
     /* after acts like a virtual element after we selected */
     &::after {
         content: "";
