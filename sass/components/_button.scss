@@ -30,7 +30,7 @@
     // this translate to .btn--white
     &--white {
         background-color: $color-white;
-        color: $color-gray-dark;
+        color: $color-grey-dark;
         // this translate to .btn--white::after 
         &::after {
             background-color: $color-white;
