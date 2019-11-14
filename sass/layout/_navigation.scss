@@ -12,6 +12,8 @@
         border-radius: 50%;
         z-index: 2000;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        text-align: center;
+        cursor: pointer;
     }
     &__background {
         // creates background circiular
@@ -73,6 +75,7 @@
             transform: translateX(1rem);
         }
     }
+    // FUNCTIONALITY
     // checkbox hack, onclick will checked the checkbox and will show the nav. Sibling selector 
     &__checkbox:checked~&__background {
         transform: scale(80);
@@ -81,5 +84,53 @@
     &__checkbox:checked~&__nav {
         opacity: 1;
         width: 100%;
+    }
+    // HAMBURGER ICON 
+    &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+        &::before {
+            top: -.8rem;
+            // tra 
+        }
+        &::after {
+            top: .8rem;
+        }
+    }
+    // onhover animation  
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+    // MAKES HAMBURGER DISAPPEAR
+    // simbling selector when checkbox is selected whe selec his brother __button and then we select the button's child which is the icon  
+    &__checkbox:checked+&__button &__icon {
+        // makes invisible hamburger icon
+        background-color: transparent;
+    }
+    &__checkbox:checked+&__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+    &__checkbox:checked+&__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
     }
 }
